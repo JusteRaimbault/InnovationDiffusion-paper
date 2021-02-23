@@ -1,5 +1,5 @@
 \input{header.tex}
-
+\begin{document}
 
 \title{An empirical study of the diffusion of innovation within systems of cities through the lens of patent data\\
 \textit{Project}
@@ -23,7 +23,7 @@
 %%%%%%%%%
 \section{Introduction}
 
-Following \cite{hagerstrand1968innovation}, the evolutive urban theory considers innovation waves between cities as a crucial components of their interactions. \cite{favaro2011gibrat} integrate this view into a model of growth for a system of cities.
+Following \cite{hagerstrand1968innovation}, the evolutionary urban theory proposed by \cite{pumain2018evolutionary} considers innovation waves between cities as a crucial components of their interactions. \cite{favaro2011gibrat} integrate this view into a model of growth for a system of cities. \cite{finance2016villes} studies investment linkages between firms to characterize networks of cities.
 
 Empirical quantifications at a large scale and on long time scales are however rare in the literature. \cite{grubler1996time} shows on examples a typical logistic curve of adoption rate in time. \cite{albuquerque2007spatiotemporal} investigate the diffusion of two norms across countries.
 
@@ -33,9 +33,13 @@ Empirical quantifications at a large scale and on long time scales are however r
 
 \cite{sonis1983spatio} Lotka-Volterra model for competing innovations
 
+\cite{meade2006modelling} review
+
+\cite{mahajan1985models} (old) book with models
+
 We propose to study the diffusion of innovation in urban systems through the lens of exhaustive patent data, combining different layers of complete patents networks.
 
-This contribution is new on the following points: (i) we are to the best of our knowledge the first to use exhaustive patents data sets; (ii) we take an urban system perspective, more precisely in the context of the evolutive urban theory; (iii)
+This contribution is new on the following points: (i) we are to the best of our knowledge the first to use exhaustive patents data sets; (ii) we take an urban system perspective, more precisely in the context of the evolutionary urban theory; (iii) we study complementary dimensions of innovation, namely citation and semantic relations between patents.
 
 
 %%%%%%%%%
@@ -45,6 +49,7 @@ This contribution is new on the following points: (i) we are to the best of our 
 
 \begin{itemize}
 	\item Existence of spatio-temporal patterns in the different layers of patents network ?
+    \item At which temporal and spatial scale ?
 	\item Patterns depending of types of techno ?
 	\item In this case, relation of these patterns to the dynamics of the urban system ?
 \end{itemize}
@@ -70,10 +75,19 @@ This contribution is new on the following points: (i) we are to the best of our 
 \subsection{Datasets}
 
 \begin{enumerate}
-	\item USPTO : citation and semantic classification 1976-2012 \cite{bergeaud2017classifying} ; localisation of inventors / or establishments (more accurate ?) \cite{li2014disambiguation}
-	\item European patent data : clean database ? (\textit{semantic processing to be done}) ; which localization ?
+	\item USPTO
+    \begin{itemize}
+    	\item Raw data \url{https://doi.org/10.7910/DVN/BW3ACK}
+        \item Citation
+        \item Semantic classification 1976-2012 \cite{bergeaud2017classifying}, dataset at \url{https://doi.org/10.7910/DVN/ZULMOY}
+        \item localisation of inventors / or establishments (more accurate ?) \cite{li2014disambiguation}
+    \end{itemize}
+	\item European patent data 
+    \begin{itemize}
+    	\item clean database with localisation ?
+        \item \textit{semantic processing to be done}
+     \end{itemize}
 	\item Cities database (spatial granularity: long time ontology for cities - evolving boundaries \cite{bretagnolle2009villes}) : ERC Geodivercity
-	\item \textit{Chinese and japanese patents ? future perspective}
 \end{enumerate}
 
 
@@ -82,23 +96,60 @@ This contribution is new on the following points: (i) we are to the best of our 
 \subsubsection{Quantifying diffusion processes}
 
 \begin{itemize}
+	\item Temporal mapping \cite{hagerstrand1968innovation}
 	\item Spatio-temporal econometrics
-	\item Diffusion models (networks, ecology, reaction-diffusion)
+    \begin{itemize}
+    	\item Simple ARMA models 
+        \item Spatio-temporal econometrics (including GWR \cite{brunsdon1998geographically}) \cite{lichstein2002spatial}
+        \item Datamining on lagged correlations \cite{raimbault2017identification}
+        \item Instrumental variables ?
+    \end{itemize}
+	\item Diffusion models
+    \begin{itemize}
+    	\item epidemiology : spatial SIR and extensions \cite{keeling1999effects} \cite{fuentes1999cellular}
+    	\item networks \cite{valente2005network} \cite{Zhang2018} (example with evolving network \cite{gross2006epidemic})
+        \item ecology \cite{sonis1983spatio}
+        \item reaction-diffusion models (see e.g. \cite{raimbault2018calibration} for a model of urban growth)
+        \item agent-based models of spatial diffusion \cite{le2018aggregate}
+        \item Bayesian models in the diffusion of language \cite{bouckaert2012mapping}
+    \end{itemize}
+    
+\end{itemize}
+
+
+\subsubsection{Specificities}
+
+\begin{itemize}
+    \item we have at least three layers/dimensions on which diffusion can be studied : citation, semantic and technological
+    \begin{itemize}
+    	\item Citation network : citation flows between cities can directly be interpreted as innovation diffusion
+        \item Semantic network : flows of keywords in time between cities ? (spatialized alluvial diagram)
+        \item Technological network : idem can define flows with overlap between classes
+    \end{itemize}
+	\item we have ontologically consistent urban entities between which the interactions must be estimated
 \end{itemize}
 
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Perspectives}
+%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{itemize}
+\item \textit{Chinese and japanese patents ? future perspective}
+\item \textit{Microscopic analysis using establishment data (insee)}
+\end{itemize}
 
+ 
 
 
 %%%%%%%%%%%%%%%%%%%%
 %% Biblio
 %%%%%%%%%%%%%%%%%%%%
-
+\newpage
 \bibliographystyle{apalike}
-\bibliography{../../Biblio/innovationDiffusion}
+\bibliography{biblio}
 
 
 \end{document}
